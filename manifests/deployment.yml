@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "customeraks-cc2a"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "customeraks-cc2a"
+  template:
+    metadata:
+      labels:
+        app: "customeraks-cc2a"
+    spec:
+      containers:
+        - name: "customeraks-cc2a"
+          image: "customerreg.azurecr.io/customeraks"
+          ports:
+          - containerPort: 80
